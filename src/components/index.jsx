@@ -4,7 +4,6 @@ import Projects from "./Projects/Projects";
 import About from "./About/About";
 import Contact from "./Contact/Contact";
 import Testimonial from "./Testimonial/Testimonial";
-import Responsive from "./Responsive/Responsive";
 import Services from "./Services/Services";
 import Footer from "./Footer/Footer";
 
@@ -15,7 +14,6 @@ export {
   About,
   Contact,
   Testimonial,
-  Responsive,
   Services,
   Footer,
 };

@@ -11,7 +11,6 @@ import {
   Contact,
   Footer,
   Projects,
-  // Responsive,
   Services,
   Skills,
   Testimonial,
@@ -32,7 +31,6 @@ function App() {
               <About />
               <Services />
               <Skills />
-              {/* <Responsive /> */}
               <Projects />
               <Testimonial />
               <div className="relative z-0">
