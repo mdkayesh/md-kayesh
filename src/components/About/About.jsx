@@ -3,6 +3,8 @@ import img from "../../assets/me.png";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer, textVariant } from "../../utility/Animation";
 
+// version two
+
 const About = () => {
   return (
     <section
