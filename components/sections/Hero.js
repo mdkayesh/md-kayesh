@@ -45,7 +45,7 @@ const Hero = () => {
 
         <motion.h1
           variants={fadeIn("up", "tween", 1.4, 0.5)}
-          className={`text-2xl sm:text-3xl md:text-5xl font-bold text-white lg:text-[40px] flex gap-2`}
+          className={`text-2xl sm:text-4xl md:text-5xl font-bold text-white flex gap-2`}
         >
           <span>Hi, {`I'm`}</span>
           {/* <span className="">front-end-developer</span> */}
@@ -61,13 +61,14 @@ const Hero = () => {
           </span>{" "}
           <span>Transforming ideas into reality through code.</span>
         </motion.p>
-        <motion.button
+        <motion.a
+          href="#projects"
           variants={fadeIn("up", "tween", 1.8, 0.5)}
           type="button"
           className={`${styles.button} mt-2`}
         >
-          Hire me
-        </motion.button>
+          My work
+        </motion.a>
 
         <motion.div variants={textVariant(2)}>
           <FaLongArrowAltDown className="h-10 w-10 mt-7 text-primary animate-bounce" />

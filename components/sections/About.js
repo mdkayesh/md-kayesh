@@ -49,12 +49,13 @@ const About = () => {
             developers.
           </p>
           <div className="flex gap-4 items-center justify-end mt-6 md:justify-start">
-            <button
+            <a
+              href="#contact"
               type="button"
               className={`relative overflow-hidden border border-primary border-solid px-6 py-2 rounded-[99px] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:-z-0  after:-translate-y-full hover:after:translate-y-0 after:transition-all after:duration-300 hover:text-black`}
             >
               <span className="relative z-10">Contact me</span>
-            </button>
+            </a>
             <a
               href="/resume/resume.pdf"
               target="_blank"
