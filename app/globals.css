@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root.theme-1 {
+  --primary-color: #70e0ff;
+  --secondary-color: #151030;
+  --tertiary-color: #F41587;
+  --background-color: #050816;
+  --text-color: #D0CDE6;
+  --btn-text-color: #0F3054;
+  --hero-bg: rgba(5, 8, 22, 0.649);
+
+  /* gradients */
+  --head-gradient: linear-gradient(to right, #70e0ff, #F41587);
+  --bg-gradient: linear-gradient(0deg, rgba(11, 61, 86, 1) 0%, rgba(10, 9, 43, 1) 70%);
+
+  /* fonts */
+  /* --primary-font: 'Roboto Condensed', sans-serif;
+  --secondary-font: 'Poppins', sans-serif; */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+
+
+
+.text-gradient {
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: var(--primary-color);
+  background: var(--head-gradient);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+
+.text-overflow-line-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: unset;
+}
+
+
+/* animation for mobile nav */
+
+.animateShow {
+  animation: animatelyShow 0.5s linear 1;
+}
+
+.animateClose {
+  animation: animatelyClose 0.5s linear 1;
+}
+
+.hide {
+  clip-path: inset(0% 100% 96% 0%);
+}
+
+.show {
+  clip-path: inset(0% 0% 0% 0%);
+}
+
+
+@keyframes animatelyShow {
+  0% {
+    clip-path: inset(0% 100% 96% 0%);
+  }
+
+  50% {
+    clip-path: inset(0% 0% 96% 0%);
+  }
+
+  100% {
+    clip-path: inset(0% 0% 0% 0%)
+  }
+}
+
+
+@keyframes animatelyClose {
+  0% {
+    clip-path: inset(0% 0% 0% 0%)
+  }
+
+  100% {
+    clip-path: inset(0% 100% 96% 0%);
+  }
+
+  50% {
+    clip-path: inset(0% 0% 96% 0%);
+  }
+}
+
+/* animate ball */
+
+
+.ball {
+  animation: float 7s linear infinite;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset -2px -2px 5px 0px var(--primary-color);
+  transition: all 0.5s ease-in-out;
+}
+
+
+
+
+.ball:hover {
+  box-shadow: inset -1px -2px 6px 1px var(--primary-color);
+}
+
+
+.ball span {
+  transition: all 0.5s ease-in-out;
+}
+
+
+.ball .span-1 {
+  box-shadow: 0px -5px 9px 3px var(--primary-color);
+}
+
+.ball .span-2 {
+  box-shadow: -1px -4px 14px 4px white;
+}
+
+
+.ball .span-3 {
+  box-shadow: 5px 2px 17px 6px var(--primary-color);
+}
+
+
+.ball .span-4 {
+  box-shadow: 13px -2px 33px 0px white, 13px -2px 33px 0px var(--primary-color);
+}
+
+
+.ball:hover .span-1 {
+  box-shadow: 0px -4px 10px 5px var(--primary-color);
+}
+
+
+.ball:hover .span-2 {
+  box-shadow: -1px -4px 16px 7px white;
+}
+
+.ball:hover .span-3 {
+  box-shadow: 5px 2px 17px 8px var(--primary-color);
+}
+
+.ball:hover .span-4 {
+  box-shadow: 9px -2px 33px 7px #331496, 9px -2px 33px 7px var(--primary-color);
+}
+
+.skill-cart {
+  animation: float 7s linear infinite;
+}
+
+.animate-float {
+  animation: float 7s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+
+  50% {
+    transform: translatey(-40px);
+  }
+
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+/* service */
+
+.service::-webkit-scrollbar {
+  display: none;
+}
+
+/* contact popup animation */
+
+
+@keyframes rotating {
+  from {
+    transform: scaleX(1) scaleY(1);
+  }
+
+  to {
+    transform: scaleX(1.1) scaleY(0.9);
+  }
+}
+
+@keyframes flying {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+
+  100% {
+    transform: translateX(calc(70vw)) translateY(-60vh);
+  }
+}
+
+
+.animate-rotating {
+  animation: rotating 1.5s ease-in-out 0.8s infinite alternate-reverse;
+}
+
+.animate-flying {
+  -webkit-animation: 20s ease-in-out 0.8s infinite alternate-reverse flying;
+  -moz-animation: 20s ease-in-out 0.8s infinite alternate-reverse flying;
+  -ms-animation: 20s ease-in-out 0.8s infinite alternate-reverse flying;
+  -o-animation: 20s ease-in-out 0.8s infinite alternate-reverse flying;
+  animation: 20s ease-in-out 0.8s infinite alternate-reverse flying;
+}
+
+.animate-flying:hover {
+  animation-play-state: paused
+}
