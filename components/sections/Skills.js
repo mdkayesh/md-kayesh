@@ -31,6 +31,7 @@ const Skills = () => {
               left: skill.left || "auto",
               right: skill.right || "auto",
               bottom: skill.bottom || "auto",
+              animationDelay: `${Number(Math.random().toFixed(1))}s`,
             }}
             drag
             dragConstraints={{

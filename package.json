@@ -13,6 +13,7 @@
     "autoprefixer": "10.4.14",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
+    "firebase": "^10.1.0",
     "framer-motion": "^10.12.17",
     "next": "13.4.7",
     "postcss": "8.4.24",

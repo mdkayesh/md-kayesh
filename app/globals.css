@@ -21,6 +21,12 @@
   --secondary-font: 'Poppins', sans-serif; */
 }
 
+
+::selection {
+  background-color: var(--primary-color);
+  color: black;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -119,8 +125,6 @@ body {
   box-shadow: inset -2px -2px 5px 0px var(--primary-color);
   transition: all 0.5s ease-in-out;
 }
-
-
 
 
 .ball:hover {

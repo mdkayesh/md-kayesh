@@ -25,7 +25,13 @@ const Experience = () => {
             <div className="rounded-full w-fit p-2 border-primary border border-solid text-3xl text-primary">
               <MdWorkHistory />
             </div>
-            <div className="line w-[2px] h-full bg-gradient-to-b from-primary to-tertiary" />
+            <motion.div
+              initial={{ height: 0 }}
+              whileInView={{ height: "100%" }}
+              transition={{ duration: 1, ease: "easeInOut", delay: 0.5 }}
+              viewport={{ once: true }}
+              className="line w-[2px] h-full bg-gradient-to-b from-primary to-tertiary"
+            />
           </div>
 
           <motion.div

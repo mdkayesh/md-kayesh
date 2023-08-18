@@ -1,7 +1,7 @@
 import { FaFacebookF, FaGithub, FaLinkedinIn, FaReact } from "react-icons/fa";
 import { IoLogoCss3, IoLogoJavascript } from "react-icons/io";
 import { AiOutlineHtml5 } from "react-icons/ai";
-import { SiTailwindcss } from "react-icons/si";
+import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
 import { BsBootstrap } from "react-icons/bs";
 import { TbBrandFramerMotion, TbBrandRedux } from "react-icons/tb";
 
@@ -89,6 +89,7 @@ const skills = [
     lavel: "95%",
     experience: "95%",
   },
+
   {
     title: "Html5",
     icon: <AiOutlineHtml5 />,
@@ -130,6 +131,15 @@ const skills = [
     mediumBubble: true,
     lavel: "75%",
     experience: "65%",
+  },
+  {
+    title: "Nextjs",
+    icon: <SiNextdotjs />,
+    bigBubble: true,
+    top: "-30px",
+    left: "-120px",
+    lavel: "60%",
+    experience: "55%",
   },
 ];
 
