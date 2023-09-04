@@ -79,12 +79,12 @@ const FeaturedProjects = () => {
                     rel="noreferrer"
                     className="absolute top-0 left-0 w-full h-full bg-[#0508165e] hover:bg-transparent transition-colors duration-500"
                   />
-                  <div className="rounded-lg overflow-hidden shadow-[#000000c5] shadow-lg bg-secondary p-4">
+                  <div className="rounded-lg overflow-hidden shadow-[#000000c5] shadow-lg bg-secondary p-4 aspect-[460/271]">
                     <Image
                       src={project.img}
                       width={500}
                       height={500}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover aspect-[460/271]"
                       alt={project.title}
                     />
                   </div>

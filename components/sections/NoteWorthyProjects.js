@@ -61,13 +61,15 @@ const NoteWorthyProjects = () => {
                   className="absolute top-0 left-0 w-full h-full z-10"
                 />
                 <header className="header">
-                  <Image
-                    src={project.img}
-                    alt={project.title}
-                    width={300}
-                    height={300}
-                    className="object-cover w-full"
-                  />
+                  <div className="aspect-[2/1.4]">
+                    <Image
+                      src={project.img}
+                      alt={project.title}
+                      width={300}
+                      height={300}
+                      className="object-cover w-full aspect-[2/1.4]"
+                    />
+                  </div>
 
                   {/* ---content--- */}
 

@@ -5,6 +5,7 @@ import {
   getFirestore,
   orderBy,
   query,
+  where,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -22,17 +23,19 @@ const db = getFirestore(app);
 
 // collections
 
-const featuredColl = collection(db, "featured-projects");
-const noteWorthyColl = collection(db, "note-worthy-projects");
+// const featuredColl = collection(db, "featured-projects");
+// const noteWorthyColl = collection(db, "note-worthy-projects");
+const projectColl = collection(db, "projects");
 
 const getFeaturedProjects = async () => {
-  const res = await getDocs(query(featuredColl, orderBy("createdAt", "desc")));
-
-  console.log(
-    res.docs.map((doc) => {
-      return { ...doc.data(), id: doc.id };
-    })
+  const res = await getDocs(
+    query(
+      projectColl,
+      where("isFeatured", "==", true),
+      orderBy("createdAt", "desc")
+    )
   );
+
   return res.docs.map((doc) => {
     return { ...doc.data(), id: doc.id };
   });
@@ -40,7 +43,11 @@ const getFeaturedProjects = async () => {
 
 const getNoteWorthyProject = async () => {
   const res = await getDocs(
-    query(noteWorthyColl, orderBy("createdAt", "desc"))
+    query(
+      projectColl,
+      where("isFeatured", "==", false),
+      orderBy("createdAt", "desc")
+    )
   );
 
   return res.docs.map((doc) => {
