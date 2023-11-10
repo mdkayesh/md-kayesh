@@ -10,8 +10,9 @@ const lato = Lato({
 });
 
 export const metadata = {
-  title: "Md Kayesh",
-  description: "Design and Built with Md Kayesh",
+  title: "Md Kayesh | Front-End-Developer",
+  description:
+    "Hi, I'm Md Kayesh. I'm a front-end-developer. I love to create fully functional beautiful and attractive-looking websites with cool animations and designs with the latest technologies like Reactjs, Nextjs, Tailwind, Framer-motion, GSAP, Bootstrap, Redux, Redux-toolkit, Javascript, CSS3, HTML5, etc. I have been working in this field since 2021. In these years I have developed 50+ websites. I love to work with new people and create websites for them. In work, my major priority is the client's requirements and their satisfaction. So, If you want to design or build a website and work with me, feel free to contact with me.",
 };
 
 export default function RootLayout({ children }) {

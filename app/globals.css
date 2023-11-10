@@ -47,9 +47,9 @@ body {
   background-color: var(--primary-color);
   background: var(--head-gradient);
   background-size: 100%;
-  background-clip: text;
   -webkit-background-clip: text;
   -moz-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 }
