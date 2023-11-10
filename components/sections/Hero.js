@@ -40,6 +40,7 @@ const Hero = () => {
             height={100}
             className="object-cover rounded-full p-1.5 w-full h-full relative z-10"
             alt={"mdKayesh"}
+            priority={true}
           />
         </motion.div>
 

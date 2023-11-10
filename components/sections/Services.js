@@ -68,6 +68,7 @@ const Services = () => {
                     width={"auto"}
                     height={"auto"}
                     className="w-full h-full"
+                    priority={true}
                   />
                 </div>
 

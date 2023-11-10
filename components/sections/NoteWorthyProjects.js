@@ -68,6 +68,7 @@ const NoteWorthyProjects = () => {
                       width={300}
                       height={300}
                       className="object-cover w-full aspect-[2/1.4]"
+                      priority={true}
                     />
                   </div>
 

@@ -86,6 +86,7 @@ const FeaturedProjects = () => {
                       height={500}
                       className="w-full h-full object-cover aspect-[460/271]"
                       alt={project.title}
+                      priority={true}
                     />
                   </div>
                 </div>
