@@ -30,6 +30,7 @@ const About = () => {
               height={400}
               width={400}
               className="mx-auto"
+              priority={true}
             />
           </div>
         </motion.div>
