@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #76D7FA;
+  --bg-primary: #001118;
+  --bg-secondary: #011a23;
+  --bg-tertiary: #05141b;
+  --bg-light: #051b23de;
+  --heading-color: #CCD6F6;
+  --text-color: #96a1c1;
+  --subtitle-color: #878da0;
+  --gradient-color: linear-gradient(to right, #3fa1c5, #5dd4ff, #2885a7);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--bg-secondary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #495670;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #576788;
+}
+
+body {
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: var(--bg-primary);
+}
+
+
+.text-gradient {
+  background: var(--gradient-color);
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vertical-rl {
+  writing-mode: vertical-rl;
+}
+
+.section-padding {
+  padding-top: 80px;
+}
+
+a {
+  position: relative;
+}
+
+._underline::after {
+  content: '';
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  transition: all 0.3s ease-in;
+}
+
+._underline:hover::after {
+  width: 100%;
+}
+
+
+/* ====================================================
+  btn styles
+======================================================= */
+
+.btn {
+  padding: 0.65rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  color: var(--primary-color);
+  transition: all 1000ms;
+  font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  outline: 2px solid var(--primary-color);
+}
+
+.btn:hover {
+  color: black;
+  transform: scale(1.1);
+  outline: 2px solid #379fc4;
+  box-shadow: 4px 5px 17px -4px #76D7FA;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--primary-color);
+  transform: skewX(45deg);
+  z-index: -1;
+  transition: width 1000ms;
+}
+
+.btn:hover::before {
+  width: 250%;
+}
+
+
+/* humberger menu styles */
+
+
+.hamburger {
+  cursor: pointer;
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  /* The size of the SVG defines the overall size */
+  height: 3em;
+  /* Define the transition for transforming the SVG */
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger .line {
+  fill: none;
+  stroke: var(--primary-color);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  /* Define the transition for transforming the Stroke */
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger .line_top_bottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked+svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked+svg .line_top_bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+
+.indicator {
+  transition: all 600ms cubic-bezier(.47, 1.64, .41, .8);
+}
+
+.indicator::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #76d7faa6, transparent);
+  clip-path: polygon(31% 0, 69% 0, 100% 100%, 0% 100%);
+  box-shadow: 0px 20px 30px 10px var(--primary-color);
+}
+
+
+.mySwiper {
+  padding-bottom: 40px !important;
+}
+
+.mySwiper .swiper-pagination-bullet {
+  width: 30px !important;
+  height: 3px !important;
+  border-radius: 10px !important;
+  background-color: gray !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+  background-color: var(--primary-color) !important;
+  width: 35px !important;
+
+}
+
+
+
+/* form styles */
+
+
+.input {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--text-color);
+  width: 100%;
+  background-color: transparent;
+  margin-top: 1rem;
+  color: var(--heading-color);
+}
+
+.input+hr {
+  width: 0;
+  transition: all 0.4s ease-in;
+}
+
+.input:focus-within+hr {
+  width: 100%;
+}
+
+
+/* contact  styles */
+
+
+.contact_heading span {
+  display: inline-block;
+  padding: 10px 0;
+  position: relative;
+  line-height: normal;
+  padding: 0;
+  font-size: clamp(70px, 9vw, 140px);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  background-color: var(--text-color);
+  background-image: linear-gradient(-45deg, var(--heading-color), var(--heading-color));
+  background-size: 200%;
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+}
