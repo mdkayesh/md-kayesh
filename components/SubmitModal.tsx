@@ -44,9 +44,10 @@ const SubmitModal = ({ isOpen, setIsOpen, success }: submitModalProps) => {
         });
       } else {
         gsap.from(ref.current, {
-          visibility: "visible",
-          opacity: 0,
+          scale: 1,
+          opacity: 1,
           ease: "expo.inOut",
+          visibility: "visible",
         });
       }
     }, ref);

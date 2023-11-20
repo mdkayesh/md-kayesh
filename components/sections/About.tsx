@@ -144,7 +144,7 @@ const About = () => {
               height={500}
               className="relative z-10 block rounded-lg transition-all duration-300 group-hover:-translate-x-3"
             />
-            <div className="absolute inset-0 left-0 top-0 z-10 h-full w-full bg-[#286f90] mix-blend-hard-light transition-all duration-300 content-[''] group-hover:-translate-x-3 group-hover:opacity-0" />
+            <div className="absolute inset-0 left-0 top-0 z-10 h-full w-full rounded-lg bg-[#286f90] mix-blend-hard-light transition-all duration-300 content-[''] group-hover:-translate-x-3 group-hover:opacity-0" />
           </div>
         </div>
       </div>
