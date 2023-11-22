@@ -82,7 +82,8 @@ const Header = () => {
                   className={`${
                     link.title === active ? "text-primary" : ""
                   } block w-[70px] text-center text-heading_color transition-all duration-300 hover:text-primary`}
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault();
                     ScrollTo(link.url);
                   }}
                 >

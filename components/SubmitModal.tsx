@@ -3,15 +3,16 @@ import gsap from "gsap";
 import { SetStateAction, Dispatch, useEffect, useRef } from "react";
 
 type submitModalProps = {
-  isOpen: boolean;
+  isOpen: boolean | null;
   success: boolean;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  setIsOpen: Dispatch<SetStateAction<boolean | null>>;
 };
 
 const SubmitModal = ({ isOpen, setIsOpen, success }: submitModalProps) => {
   const ref = useRef(null);
 
   useEffect(() => {
+    if (isOpen === null) return;
     const ctx = gsap.context(() => {
       if (isOpen) {
         const tl = gsap.timeline();

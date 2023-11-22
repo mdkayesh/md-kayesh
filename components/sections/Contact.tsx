@@ -16,7 +16,7 @@ const Contact = () => {
   const formRef = useRef(null);
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [popUp, setPopUp] = useState(false);
+  const [popUp, setPopUp] = useState<boolean | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
