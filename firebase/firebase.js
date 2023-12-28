@@ -23,8 +23,6 @@ const db = getFirestore(app);
 
 // collections
 
-// const featuredColl = collection(db, "featured-projects");
-// const noteWorthyColl = collection(db, "note-worthy-projects");
 const projectColl = collection(db, "projects");
 
 const getFeaturedProjects = async () => {
