@@ -5,7 +5,10 @@ import NoteWorthy from "@/components/sections/NoteWorthy";
 import Projects from "@/components/sections/Projects";
 import Services from "@/components/sections/Services";
 
+export const revalidate = 3600;
+
 export default function Home() {
+
   return (
     <main className="main">
       <div className="sections container w-full flex-1 overflow-x-hidden">
