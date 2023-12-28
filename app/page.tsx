@@ -5,7 +5,7 @@ import NoteWorthy from "@/components/sections/NoteWorthy";
 import Projects from "@/components/sections/Projects";
 import Services from "@/components/sections/Services";
 
-export const revalidate = 3600;
+export const revalidate = 0;
 
 export default function Home() {
 
