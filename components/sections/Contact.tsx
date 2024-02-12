@@ -38,6 +38,7 @@ const Contact = () => {
         process.env.NEXT_PUBLIC_TEMPLATE_ID as string,
         {
           from_name: formData.name,
+          from_email: formData.email,
           to_name: "Md Kayesh",
           subject: formData.subject,
           message: formData.message,
