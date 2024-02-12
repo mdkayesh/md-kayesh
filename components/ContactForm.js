@@ -35,6 +35,7 @@ const ContactForm = () => {
         "template_zr6yhws",
         {
           from_name: formData.name,
+          from_email:formData.email,
           to_name: "Md Kayesh",
           subject: formData.subject,
           message: formData.message,
@@ -65,7 +66,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <form action="" onSubmit={handleSubmit} ref={formRef}>
+      < action="" onSubmit={handleSubmit} ref={formRef}>
         <div className="flex flex-col gap-x-4 gap-y-0 lg:flex-row">
           <div className="w-full lg:w-1/2">
             <label htmlFor="name" className={`${styles.label}`}>
@@ -142,7 +143,8 @@ const ContactForm = () => {
             {loading ? "Sending" : "Send"}
           </motion.button>
         </div>
-      </form>
+      </
+      form>
 
       {/* popup */}
       <div

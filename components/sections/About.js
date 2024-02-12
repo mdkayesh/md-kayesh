@@ -40,14 +40,17 @@ const About = () => {
         >
           <Heading title={"About me"} subTitle={"Know"} />
           <p className="mt-6 leading-relaxed">
-            As a frontend developer, I have expertise in HTML, CSS, Javascript
-            and popular frameworks such as Reactjs. I create visually appealing
-            and user-fridenly interfaces with a focus on detail, and stay
-            up-todate with the latest frontend technologies and best practices.
-            I am skilled in troubleshooting and debugging, and have passion for
-            creating seamless user experiences. I have strong communication
-            skills and a proven ability to collaborate with designers and
-            developers.
+            Hey there! I'm Md Kayesh, and I love making cool stuff on the
+            internet. I got into web development around 2020, and it's been a
+            blast! I started with basic things like HTML, CSS, and JavaScript to
+            create good-looking and interactive web pages.
+            <p className="mt-5">
+              Over time, I've learned fancier tools like React, Nextjs and
+              TypeScript which let me make websites that not only look awesome
+              but also do cool things when you click on them. I'm all about
+              making websites that are not just pretty but also super easy for
+              people to use.
+            </p>
           </p>
           <div className="flex gap-4 items-center justify-end mt-6 md:justify-start">
             <a
