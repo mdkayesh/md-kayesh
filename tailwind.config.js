@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+module.exports = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   theme: {
     extend: {
       colors: {
@@ -15,6 +19,13 @@ export default {
 
       container: {
         center: true,
+        screens: {
+          sm: "600px",
+          md: "728px",
+          lg: "984px",
+          xl: "1000px",
+          "2xl": "1000px",
+        },
       },
 
       screens: {
