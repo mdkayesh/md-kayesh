@@ -25,7 +25,7 @@ export default function ServiceSlider() {
       gsap.from(".service-item", {
         y: 70,
         opacity: 0,
-        ease: "power2.in",
+        ease: "power3",
         stagger: 0.12,
         scrollTrigger: {
           trigger: ref.current,

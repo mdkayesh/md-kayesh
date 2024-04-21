@@ -5,26 +5,32 @@ const useNavAnimation = (
 ) => {
   useEffect(() => {
     if (!ref.current) return;
-    let prevScrollpos = window.scrollY | document.body.scrollTop;
+    let prevScrollpos =
+      window.scrollY ||
+      document.body.scrollTop ||
+      document.documentElement.scrollTop;
     let nav = ref.current as HTMLHeadElement;
 
     nav.style.top = "0";
 
     const handleScroll = () => {
-      let currentScrollPos = window.scrollY | document.body.scrollTop;
+      let currentScrollPos =
+        window.scrollY ||
+        document.body.scrollTop ||
+        document.documentElement.scrollTop;
 
-      if (currentScrollPos < 100) {
-        nav.style.top = "0";
-        nav.style.backdropFilter = "none";
-        nav.style.backgroundColor = "";
-      } else {
-        if (prevScrollpos > currentScrollPos) {
+      if (prevScrollpos > currentScrollPos) {
+        if (currentScrollPos < 150) {
+          nav.style.top = "0";
+          nav.style.backdropFilter = "none";
+          nav.style.backgroundColor = "";
+        } else {
           nav.style.top = "0";
           nav.style.backdropFilter = "blur(8px)";
           nav.style.backgroundColor = "var(--bg-light)";
-        } else {
-          nav.style.top = "-100%";
         }
+      } else {
+        nav.style.top = "-100%";
       }
       prevScrollpos = currentScrollPos;
     };

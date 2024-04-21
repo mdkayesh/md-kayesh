@@ -14,8 +14,8 @@ const contactContent = {
 const Contact = () => {
   const ref = useRef(null);
   const formRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [popUp, setPopUp] = useState<boolean | null>(null);
   const [formData, setFormData] = useState({
     name: "",
@@ -102,7 +102,7 @@ const Contact = () => {
         stagger: 0.2,
         scrollTrigger: {
           trigger: `.contact_heading`,
-          start: "top 70%",
+          start: "top 80%",
         },
       });
 
@@ -112,14 +112,12 @@ const Contact = () => {
         stagger: 0.2,
         scrollTrigger: {
           trigger: `h2`,
-          start: "top 70%",
+          start: "top 80%",
         },
       });
     }, ref);
 
-    return () => {
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -142,7 +140,6 @@ const Contact = () => {
         {/* form */}
         <div className="md:min-w-[350px]">
           <form
-            action=""
             className="form w-full bg-bg_secondary px-5 py-10 md:px-8"
             onSubmit={handleSubmit}
             ref={formRef}

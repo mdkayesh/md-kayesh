@@ -12,7 +12,7 @@ const Projects = async () => {
       <SectionTitle subTitle="Some things" title="I've Built" />
       <div className="mt-10 flex flex-col gap-10 md:gap-24">
         {projects?.map((item, index) => (
-          <ProjectItem item={item} key={index} index={index} />
+          <ProjectItem item={item} key={item.id} index={index} />
         ))}
 
         {/* for mobile device */}

@@ -39,6 +39,7 @@ export type docData = {
   description: string;
   isFeatured: string;
   id: string;
+  buyUrl?: string;
 };
 
 const getFeaturedProjects = async () => {

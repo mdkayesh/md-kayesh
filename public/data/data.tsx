@@ -70,7 +70,7 @@ export const socialIcons = [
   {
     title: "Linkedin",
     icon: <Linkedin />,
-    url: "https://www.linkedin.com/in/md-kayesh-37b0a1276/",
+    url: "https://www.linkedin.com/in/md-kayesh",
   },
   {
     title: "Instagram",
@@ -80,7 +80,7 @@ export const socialIcons = [
   {
     title: "Facebook",
     icon: <Facebook />,
-    url: "https://www.facebook.com/profile.php?id=100006304188828",
+    url: "https://www.facebook.com/kayeskhanakash",
   },
   {
     title: "CodePen",
@@ -101,21 +101,6 @@ type serviceItemType = {
 
 export const serviceItems: serviceItemType[] = [
   {
-    title: "UI/UX Design",
-    icon: <UiIcon />,
-    text: `Proficient in translating user needs into engaging interfaces through wireframing, prototyping, and collaboration with cross-functional teams. Experienced in user research methodologies to inform design decisions and enhance overall usability.`,
-  },
-  {
-    title: "Web Design",
-    icon: <WebsiteIcon />,
-    text: `I create visually appealing and user-friendly website designs using HTML5, CSS3, JavaScript, reactjs and latest technologies. This involves considering factors like layout, color schemes, typography, and responsive design to ensure compatibility across different devices and screen sizes.`,
-  },
-  {
-    title: "Responsive Design",
-    icon: <Responsive />,
-    text: `I ensure that websites or applications adapt and respond effectively to different devices and screen sizes, providing an optimal user experience across desktops, laptops, tablets, and mobile devices.`,
-  },
-  {
     title: "Front-End-Development",
     icon: <CodeIcon className="text-text_color" />,
     text: `I translate design concepts into functional web interfaces by writing clean and efficient code. This includes using HTML to structure the content, CSS for styling, and JavaScript for interactivity and dynamic behavior.`,
@@ -129,5 +114,20 @@ export const serviceItems: serviceItemType[] = [
     title: "Testing and Debugging",
     icon: <DebugIcon />,
     text: `I perform testing and debugging to identify and resolve any issues or bugs related to the front-end functionality or user experience. This ensures a smooth and error-free experience for users.`,
+  },
+  {
+    title: "UI/UX Design",
+    icon: <UiIcon />,
+    text: `Proficient in translating user needs into engaging interfaces through wireframing, prototyping, and collaboration with cross-functional teams. Experienced in user research methodologies to inform design decisions and enhance overall usability.`,
+  },
+  {
+    title: "Web Design",
+    icon: <WebsiteIcon />,
+    text: `I create visually appealing and user-friendly website designs using HTML5, CSS3, JavaScript, reactjs and latest technologies. This involves considering factors like layout, color schemes, typography, and responsive design to ensure compatibility across different devices and screen sizes.`,
+  },
+  {
+    title: "Responsive Design",
+    icon: <Responsive />,
+    text: `I ensure that websites or applications adapt and respond effectively to different devices and screen sizes, providing an optimal user experience across desktops, laptops, tablets, and mobile devices.`,
   },
 ];

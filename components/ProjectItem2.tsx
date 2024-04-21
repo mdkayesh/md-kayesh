@@ -1,22 +1,18 @@
+"use client";
+
 import { docData } from "@/firebase/firebase";
 import { ExternalIcon, GitHub } from "@/utils/icons";
 import gsap from "gsap";
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type ProjectItem2Props = {
   item: docData;
   index: number;
-  seeMore: number | null;
-  handleActive: (index: number) => void;
 };
 
-const ProjectItem2 = ({
-  item,
-  index,
-  seeMore,
-  handleActive,
-}: ProjectItem2Props) => {
+const ProjectItem2 = ({ item, index }: ProjectItem2Props) => {
+  const [seeMore, setSeeMore] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
@@ -33,11 +29,13 @@ const ProjectItem2 = ({
       });
     }, ref);
 
+    setSeeMore(true);
+
     return () => ctx.revert();
-  }, []);
+  }, [item]);
 
   return (
-    <div className="project-item" key={item.id} ref={ref}>
+    <div className="project-item" ref={ref}>
       <div className="flex h-full flex-col justify-between rounded-md bg-bg_secondary p-5 shadow-lg transition-all duration-300 hover:-translate-y-3">
         <div className="header">
           <div className="img">
@@ -57,7 +55,7 @@ const ProjectItem2 = ({
                 {item.title}
               </a>
             </h2>
-            <p className={`${index === seeMore ? "" : "line-clamp-3"} mt-4`}>
+            <p className={`${seeMore ? "line-clamp-3" : ""} mt-4`}>
               {item.description}
             </p>
           </div>
@@ -75,10 +73,9 @@ const ProjectItem2 = ({
             {item.description.length > 160 && (
               <button
                 type="button"
-                onClick={() => handleActive(index)}
                 className="_underline relative text-primary"
               >
-                {index === seeMore ? "See less" : "See more"}
+                {seeMore ? "See More" : "See Less"}
               </button>
             )}
 

@@ -3,10 +3,9 @@
 import { docData } from "@/firebase/firebase";
 import { ExternalIcon, GitHub } from "@/utils/icons";
 import gsap from "gsap";
-import _ScrollTrigger from "gsap/ScrollTrigger";
 import { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type ProjectItemProps = {
   item: docData;
@@ -15,8 +14,14 @@ type ProjectItemProps = {
 
 const ProjectItem = ({ item, index }: ProjectItemProps) => {
   const ref = useRef(null);
+  const [seeMore, setSeeMore] = useState(false);
 
   useEffect(() => {
+    const timeOut = setTimeout(() => {
+      ScrollTrigger.refresh();
+      console.log("scrolltrigger refresh!");
+    }, 50);
+
     const ctx = gsap.context(() => {
       gsap.from([".left", ".right"], {
         y: 70,
@@ -29,9 +34,13 @@ const ProjectItem = ({ item, index }: ProjectItemProps) => {
         },
       });
     }, ref);
+    setSeeMore(true);
 
-    return () => ctx.revert();
-  }, []);
+    return () => {
+      ctx.revert();
+      clearTimeout(timeOut);
+    };
+  }, [item]);
 
   return (
     <div
@@ -48,7 +57,7 @@ const ProjectItem = ({ item, index }: ProjectItemProps) => {
           target="_blank"
           rel="noopener noreferrer"
           title={item.url}
-          className="block aspect-[6/4] h-fit shadow-lg"
+          className="block aspect-[59/30] h-fit shadow-lg"
         >
           <Image
             width={500}
@@ -75,7 +84,20 @@ const ProjectItem = ({ item, index }: ProjectItemProps) => {
           </a>
         </h1>
         <div className="mt-4 rounded-lg bg-bg_secondary p-6 transition-all duration-300 hover:shadow-xl">
-          <p className="">{item.description}</p>
+          <p
+            className={`${seeMore ? "line-clamp-3" : ""} transition-all duration-300`}
+          >
+            {item.description}
+          </p>
+          {item.description.length > 280 && (
+            <button
+              type="button"
+              onClick={() => setSeeMore(!seeMore)}
+              className="_underline relative text-primary"
+            >
+              {seeMore ? "See More" : "See Less"}
+            </button>
+          )}
         </div>
         <div className="mt-4">
           <p
@@ -116,6 +138,18 @@ const ProjectItem = ({ item, index }: ProjectItemProps) => {
           >
             <ExternalIcon />
           </a>
+
+          {item?.buyUrl && (
+            <a
+              href={item.buyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Buy Now"
+              className="btn sm"
+            >
+              Buy Now
+            </a>
+          )}
         </div>
       </div>
     </div>

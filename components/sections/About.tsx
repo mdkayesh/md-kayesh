@@ -24,6 +24,12 @@ const technologies = [
     title: "Tailwind CSS",
   },
   {
+    title: "Angular",
+  },
+  {
+    title: "Vue.js",
+  },
+  {
     title: "Bootstrap",
   },
 ];
@@ -65,7 +71,8 @@ const About = () => {
       });
 
       tl.from(".tech ul li", {
-        x: 80,
+        y: 20,
+        x: -20,
         opacity: 0,
         stagger: 0.15,
       });

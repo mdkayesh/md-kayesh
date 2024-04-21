@@ -9,9 +9,14 @@
   --bg-tertiary: #05141b;
   --bg-light: #051b23de;
   --heading-color: #CCD6F6;
-  --text-color: #96a1c1;
+  --text-color: #bfc9e3;
   --subtitle-color: #878da0;
   --gradient-color: linear-gradient(to right, #3fa1c5, #5dd4ff, #2885a7);
+}
+
+::selection {
+  background-color: var(--primary-color);
+  color: black;
 }
 
 ::-webkit-scrollbar {
@@ -78,7 +83,7 @@ a {
 ======================================================= */
 
 .btn {
-  padding: 0.65rem 1.5rem;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
   font-weight: bold;
@@ -91,6 +96,11 @@ a {
   overflow: hidden;
   outline: 2px solid var(--primary-color);
 }
+
+.btn.sm {
+  padding: 0.2rem 1rem;
+}
+
 
 .btn:hover {
   color: black;

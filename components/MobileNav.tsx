@@ -6,6 +6,7 @@ import { ScrollTo, splitText } from "@/utils/functions";
 import gsap from "gsap";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import HumbergerMenu from "./HumbergerMenu";
 
 type mobileNavProps = {
   isOpen: boolean | null;
@@ -71,10 +72,13 @@ const MobileNav = ({ isOpen, setIsOpen }: mobileNavProps) => {
 
   return (
     <div
-      className="mobile-nav invisible fixed -left-full top-0 h-screen w-full bg-bg_light"
+      className="mobile-nav invisible fixed -left-full top-0 z-50 h-screen w-full bg-bg_light"
       ref={ref}
     >
-      <nav className="flex h-full w-0 gap-4 overflow-hidden bg-bg_primary p-0">
+      <nav className="relative flex h-full w-0 gap-4 overflow-hidden bg-bg_primary p-0">
+        <div className="absolute right-4 top-4">
+          <HumbergerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+        </div>
         <ul className="h-full w-1/2">
           {navlinks.map((link) => (
             <li

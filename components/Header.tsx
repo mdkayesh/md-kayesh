@@ -52,59 +52,62 @@ const Header = () => {
   }, []);
 
   return (
-    <header
-      className={`fixed left-0 top-0 z-50 w-full transition-all duration-500`}
-      ref={navRef}
-    >
-      <nav className="nav flex items-center justify-between px-4 py-3 md:py-0">
-        <Link href="/" className="logo">
-          <Logo className="h-fit w-32" />
-        </Link>
-        {/* navlinks */}
+    <>
+      <header
+        className={`fixed left-0 top-0 z-50 w-full transition-all duration-500`}
+        ref={navRef}
+      >
+        <nav className="nav flex items-center justify-between px-4 py-3 md:py-0">
+          <Link href="/" className="logo">
+            <Logo className="h-fit w-32" />
+          </Link>
+          {/* navlinks */}
 
-        <div className="hidden items-center gap-8 md:flex">
-          <ul className="relative flex items-center gap-4 py-7">
-            <div
-              className="indicator absolute left-0 top-0 z-[1] h-0 w-[70px] opacity-0"
-              ref={indicatorRef}
-            >
-              <div className="h-1 w-full rounded-lg bg-primary"></div>
-            </div>
-            {navlinks.map((link, index) => (
-              <li
-                key={link.title}
-                onClick={() => handleClick(link.title, index)}
-                className="nav-link relative z-10"
+          <div className="hidden items-center gap-8 md:flex">
+            <ul className="relative flex items-center gap-4 py-7">
+              <div
+                className="indicator absolute left-0 top-0 z-[1] h-0 w-[70px] opacity-0"
+                ref={indicatorRef}
               >
-                <Link
-                  // type="button"
-                  href={link.url}
-                  className={`${
-                    link.title === active ? "text-primary" : ""
-                  } block w-[70px] text-center text-heading_color transition-all duration-300 hover:text-primary`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    ScrollTo(link.url);
-                  }}
+                <div className="h-1 w-full rounded-lg bg-primary"></div>
+              </div>
+              {navlinks.map((link, index) => (
+                <li
+                  key={link.title}
+                  onClick={() => handleClick(link.title, index)}
+                  className="nav-link relative z-10"
                 >
-                  {link.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
+                  <Link
+                    // type="button"
+                    href={link.url}
+                    className={`${
+                      link.title === active ? "text-primary" : ""
+                    } block w-[70px] text-center text-heading_color transition-all duration-300 hover:text-primary`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      ScrollTo(link.url);
+                    }}
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-          <div className="button flex">
-            <Button tag="a" href="/resume/resume.pdf" target="_blank">
-              Resume
-            </Button>
+            <div className="button flex">
+              <Button tag="a" href="/resume/resume.pdf" target="_blank">
+                Resume
+              </Button>
+            </div>
           </div>
-        </div>
-        <div className="menu md:hidden">
-          <HumbergerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
-          <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
-        </div>
-      </nav>
-    </header>
+          <div className="menu md:hidden">
+            <HumbergerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+          </div>
+        </nav>
+      </header>
+
+      <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
+    </>
   );
 };
 
