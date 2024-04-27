@@ -2,7 +2,7 @@
 
 import { docData } from "@/firebase/firebase";
 import { ExternalIcon, GitHub } from "@/utils/icons";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import React from "react";
 
@@ -11,7 +11,9 @@ type ProjectItemProps = {
 };
 
 const MobileProject = ({ item }: ProjectItemProps) => {
+  const [seeMore, setSeeMore] = useState(false);
   const ref = useRef(null);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(ref.current, {
@@ -44,7 +46,18 @@ const MobileProject = ({ item }: ProjectItemProps) => {
           </a>
         </h1>
         <div className="mt-3">
-          <p>{item.description}</p>
+          <p className={`${!seeMore ? "line-clamp-3" : ""}`}>
+            {item.description}
+          </p>
+          {item.description.length > 280 && (
+            <button
+              type="button"
+              onClick={() => setSeeMore(!seeMore)}
+              className="_underline relative text-primary"
+            >
+              {!seeMore ? "See More" : "See Less"}
+            </button>
+          )}
         </div>
         <div className="mt-4">
           <p className="flex flex-wrap items-center gap-3 font-semibold">

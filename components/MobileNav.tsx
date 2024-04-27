@@ -5,7 +5,7 @@ import Button from "@/utils/Button";
 import { ScrollTo, splitText } from "@/utils/functions";
 import gsap from "gsap";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import HumbergerMenu from "./HumbergerMenu";
 
 type mobileNavProps = {
@@ -14,55 +14,57 @@ type mobileNavProps = {
 };
 
 const MobileNav = ({ isOpen, setIsOpen }: mobileNavProps) => {
+  const [windowHeight, setwindowHeight] = useState(window.innerHeight);
   const ref = useRef(null);
   useEffect(() => {
     const ctx = gsap.context(() => {
       if (isOpen === null) return;
       if (isOpen) {
         const tl = gsap.timeline();
-        tl.to(ref.current, {
-          left: 0,
-          visibility: "visible",
-          ease: "power3.inOut",
+
+        gsap.to(".svg-curve path", {
+          attr: {
+            d: `M100 0 L100 ${windowHeight} Q100 ${windowHeight / 2} 100 0`,
+          },
+          ease: "expo.inOut",
+          duration: 1.3,
         });
 
-        tl.to("nav", {
-          width: "100%",
-          padding: "24px",
-        });
-
-        tl.from("a span", {
-          rotateX: "90deg",
-          stagger: 0.02,
-          ease: "back",
-          duration: 0.7,
-        });
-
-        tl.from(".right", {
-          opacity: 0,
-        });
-
-        tl.from(".social-icon", {
-          x: -30,
-          y: 20,
-          opacity: 0,
+        gsap.from(".link", {
+          x: 30,
           stagger: 0.1,
+          ease: "expo.inOut",
+          duration: 1,
+        });
+
+        tl.to(ref.current, {
+          right: 0,
+          ease: "expo.inOut",
+          duration: 1,
         });
       } else {
+        // when isopen = false
         const tl = gsap.timeline();
 
-        tl.to([".right", "a span"], {
-          opacity: 0,
+        gsap.from(".svg-curve path", {
+          attr: {
+            d: `M100 0 L100 ${windowHeight} Q100 ${windowHeight / 2} 100 0`,
+            ease: "expo.inOut",
+            duration: 1,
+          },
         });
 
-        tl.from("nav", {
-          width: "100%",
-          padding: "24px",
+        gsap.to(".link", {
+          x: 30,
+          stagger: 0.1,
+          ease: "expo.inOut",
+          duration: 1,
         });
 
         tl.from(ref.current, {
-          left: 0,
-          visibility: "visible",
+          right: 0,
+          ease: "expo.inOut",
+          duration: 1,
         });
       }
     }, ref);
@@ -70,66 +72,83 @@ const MobileNav = ({ isOpen, setIsOpen }: mobileNavProps) => {
     return () => ctx.revert();
   }, [isOpen]);
 
+  useEffect(() => {
+    setwindowHeight(window.innerHeight);
+    const handleResize = () => {
+      setwindowHeight(window.innerHeight);
+    };
+
+    if (isOpen) {
+      window.addEventListener("resize", handleResize);
+    }
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div
-      className="mobile-nav invisible fixed -left-full top-0 z-50 h-screen w-full bg-bg_light"
-      ref={ref}
-    >
-      <nav className="relative flex h-full w-0 gap-4 overflow-hidden bg-bg_primary p-0">
-        <div className="absolute right-4 top-4">
-          <HumbergerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
-        </div>
-        <ul className="h-full w-1/2">
-          {navlinks.map((link) => (
-            <li
-              key={link.title}
-              style={{ height: `${100 / navlinks.length}%` }}
-            >
-              <Link
-                href={link.url}
-                onClick={() => {
-                  ScrollTo(link.url);
-                  setIsOpen(false);
-                }}
-                className="block text-[200%] font-bold tracking-wide transition-all duration-300 hover:tracking-widest hover:text-primary"
-              >
-                {splitText(link.title).map((text, index) => (
-                  <span className="inline-block origin-bottom" key={index}>
-                    {text}
-                  </span>
-                ))}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className="right flex w-1/2 flex-col-reverse items-center justify-center gap-4 text-center">
-          <ul className="flex gap-4 max-[400px]:hidden">
-            {socialIcons.map((icon) => (
-              <li key={icon.url} className="social-icon">
-                <a
-                  title={icon.title}
-                  href={icon.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-2xl text-subtitle_color transition-colors duration-300 hover:text-primary"
+    <>
+      <div
+        className="mobile-nav fixed -right-[calc(100%+100px)] top-0 z-50 h-screen w-[250px] bg-bg_secondary md:hidden"
+        ref={ref}
+      >
+        <nav className="relative z-10 flex h-full flex-col justify-between gap-4 overflow-auto p-5">
+          <div className="absolute right-3 top-2">
+            <HumbergerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+          </div>
+          <ul className="mt-3 flex h-full w-full flex-1 flex-col items-center gap-4">
+            {navlinks.map((link) => (
+              <li key={link.title} className="link">
+                <Link
+                  href={link.url}
+                  onClick={() => {
+                    ScrollTo(link.url);
+                    setIsOpen(false);
+                  }}
+                  className="block text-lg font-bold tracking-wide transition-all duration-300 hover:tracking-widest hover:text-primary"
                 >
-                  {icon.icon}
-                </a>
+                  {link.title}
+                </Link>
               </li>
             ))}
           </ul>
-          <a
-            href="mailto:mdkayesh777@gmail.com"
-            className="text-lg hover:text-primary"
-          >
-            mdkayesh777@gmail.com
-          </a>
-          <Button tag="a" href="/resume/resume.pdf" target="_blank">
-            Resume
-          </Button>
-        </div>
-      </nav>
-    </div>
+          <div className="flex w-full flex-col-reverse items-center justify-center gap-4 border-t border-gray-600 pt-5 text-center">
+            <ul className="flex gap-4">
+              {socialIcons.map((icon) => (
+                <li key={icon.url} className="social-icon">
+                  <a
+                    title={icon.title}
+                    href={icon.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-2xl text-subtitle_color transition-colors duration-300 hover:text-primary"
+                  >
+                    {icon.icon}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="mailto:mdkayesh777@gmail.com"
+              className="text-lg hover:text-primary"
+            >
+              mdkayesh777@gmail.com
+            </a>
+            <Button tag="a" href="/resume/resume.pdf" target="_blank">
+              Resume
+            </Button>
+          </div>
+        </nav>
+        {/* svg curve */}
+        <svg
+          className={"svg-curve absolute left-[-99px] top-0 h-full w-[100px]"}
+        >
+          <path
+            d={`M100 0 L100 ${windowHeight} Q-100 ${windowHeight / 2} 100 0`}
+            className="fill-bg_secondary"
+          ></path>
+        </svg>
+      </div>
+    </>
   );
 };
 

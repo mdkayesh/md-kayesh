@@ -5,6 +5,7 @@ import { useState, FormEvent, ChangeEvent, useRef, useEffect } from "react";
 import Button from "@/utils/Button";
 import emailjs from "@emailjs/browser";
 import SubmitModal from "../SubmitModal";
+import { socialIcons } from "@/public/data/data";
 
 const contactContent = {
   title: "Get In Touch With Me",
@@ -95,6 +96,16 @@ const Contact = () => {
         stagger: 0.2,
       });
 
+      tl.from(".or", {
+        y: 20,
+        opacity: 0,
+      });
+
+      tl.from(".social-icons", {
+        y: 20,
+        opacity: 0,
+      });
+
       gsap.from(`.inner-contact span`, {
         backgroundPositionX: "200%",
         scale: 0.8,
@@ -138,12 +149,8 @@ const Contact = () => {
         </div>
 
         {/* form */}
-        <div className="md:min-w-[350px]">
-          <form
-            className="form w-full bg-bg_secondary px-5 py-10 md:px-8"
-            onSubmit={handleSubmit}
-            ref={formRef}
-          >
+        <div className="rounded-lg bg-bg_secondary px-5 py-10 md:min-w-[350px] md:px-8">
+          <form className="form" onSubmit={handleSubmit} ref={formRef}>
             {/* <h1 className="text-3xl font-semibold mb-6 stroke-text">Contact</h1> */}
             <input
               onChange={handleChange}
@@ -199,6 +206,24 @@ const Contact = () => {
               {isLoading ? "Sending" : "Send"}
             </Button>
           </form>
+          <div className="or my-4 flex w-full items-center justify-center gap-3">
+            <hr className="block w-full border border-gray-600" />{" "}
+            <span className="text-xl font-semibold">Or</span>
+            <hr className="block w-full border border-gray-600" />
+          </div>
+          <ul className="social-icons flex items-center justify-center gap-4">
+            {socialIcons.map((icon, index) => (
+              <li key={index} className="text-xl md:text-2xl">
+                <a
+                  href={icon.url}
+                  target="_blank"
+                  className="block transition-all duration-300 hover:-translate-y-1 hover:text-primary"
+                >
+                  {icon.icon}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 

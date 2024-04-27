@@ -65,7 +65,7 @@ export const socialIcons = [
   {
     title: "GitHub",
     icon: <GitHub />,
-    url: "https://github.com/KayesKhanAkash/",
+    url: "https://github.com/mdkayesh/",
   },
   {
     title: "Linkedin",

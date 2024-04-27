@@ -7,15 +7,25 @@ const EmailSide = () => {
   const ref = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(ref.current, {
-        y: 50,
-        opacity: 0,
-        delay: 4,
-      });
-    }, ref);
+    const mm = gsap.matchMedia(ref);
+    const breakPoint = 768;
+    mm.add(
+      {
+        isDesktop: `(min-width: ${breakPoint}px)`,
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
+      },
+      (ctx) => {
+        gsap.from(ref.current, {
+          y: 50,
+          opacity: 0,
+          delay: ctx.conditions?.isMobile ? 2 : 3.7,
+        });
 
-    return () => ctx.revert();
+        return () => {};
+      },
+    );
+
+    return () => mm.revert();
   }, []);
 
   return (

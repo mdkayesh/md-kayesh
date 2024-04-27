@@ -72,9 +72,9 @@ const About = () => {
 
       tl.from(".tech ul li", {
         y: 20,
-        x: -20,
+        x: -10,
         opacity: 0,
-        stagger: 0.15,
+        stagger: 0.05,
       });
     }, ref);
 

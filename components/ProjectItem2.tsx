@@ -29,8 +29,6 @@ const ProjectItem2 = ({ item, index }: ProjectItem2Props) => {
       });
     }, ref);
 
-    setSeeMore(true);
-
     return () => ctx.revert();
   }, [item]);
 
@@ -55,7 +53,7 @@ const ProjectItem2 = ({ item, index }: ProjectItem2Props) => {
                 {item.title}
               </a>
             </h2>
-            <p className={`${seeMore ? "line-clamp-3" : ""} mt-4`}>
+            <p className={`${seeMore ? "" : "line-clamp-3"} mt-4`}>
               {item.description}
             </p>
           </div>
@@ -74,8 +72,9 @@ const ProjectItem2 = ({ item, index }: ProjectItem2Props) => {
               <button
                 type="button"
                 className="_underline relative text-primary"
+                onClick={() => setSeeMore(!seeMore)}
               >
-                {seeMore ? "See More" : "See Less"}
+                {seeMore ? "See Less" : "See More"}
               </button>
             )}
 

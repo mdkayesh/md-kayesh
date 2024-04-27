@@ -4,7 +4,7 @@ import "./globals.css";
 import { metaData } from "@/public/data/data";
 import Header from "@/components/Header";
 import Footer from "@/components/sections/Footer";
-import SocialSide from "@/components/SocialSide";
+import SocialSide from "@/components/SocialLinks";
 import EmailSide from "@/components/EmailSide";
 import Wrapper from "@/components/Wrapper";
 

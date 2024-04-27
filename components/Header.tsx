@@ -31,6 +31,7 @@ const Header = () => {
           ease: "power3.inOut",
         },
       });
+
       tl.from(".logo", {
         x: -30,
         opacity: 0,

@@ -19,7 +19,6 @@ const ProjectItem = ({ item, index }: ProjectItemProps) => {
   useEffect(() => {
     const timeOut = setTimeout(() => {
       ScrollTrigger.refresh();
-      console.log("scrolltrigger refresh!");
     }, 50);
 
     const ctx = gsap.context(() => {
@@ -84,9 +83,7 @@ const ProjectItem = ({ item, index }: ProjectItemProps) => {
           </a>
         </h1>
         <div className="mt-4 rounded-lg bg-bg_secondary p-6 transition-all duration-300 hover:shadow-xl">
-          <p
-            className={`${seeMore ? "line-clamp-3" : ""} transition-all duration-300`}
-          >
+          <p className={`${seeMore ? "line-clamp-3" : ""}`}>
             {item.description}
           </p>
           {item.description.length > 280 && (
@@ -117,16 +114,18 @@ const ProjectItem = ({ item, index }: ProjectItemProps) => {
         </div>
 
         <div className="mt-4 flex items-center gap-4 text-2xl">
-          <a
-            href={item.gitUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="github"
-            data-cursor="-hidden invisible"
-            className="hover:text-primary"
-          >
-            <GitHub />
-          </a>
+          {item.gitUrl && (
+            <a
+              href={item.gitUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="github"
+              data-cursor="-hidden invisible"
+              className="hover:text-primary"
+            >
+              <GitHub />
+            </a>
+          )}
 
           <a
             href={item.url}

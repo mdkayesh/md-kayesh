@@ -20,7 +20,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
   background-color: var(--bg-secondary);
   border-radius: 10px;
 }

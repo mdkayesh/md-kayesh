@@ -53,13 +53,21 @@ const Hero = () => {
         ideas into reality through code.
       </p>
 
-      <div className="button mt-8">
+      <div className="button mt-8 flex flex-wrap items-center gap-5">
         <Button
           tag="button"
           type="button"
           onClick={() => ScrollTo("#projects")}
         >
           Check out my portfolio
+        </Button>
+        <Button
+          tag="a"
+          href="/resume/resume.pdf"
+          target="_blank"
+          className="!bg-primary !text-bg_primary"
+        >
+          Resume
         </Button>
       </div>
     </div>
