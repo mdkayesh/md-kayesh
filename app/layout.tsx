@@ -7,6 +7,7 @@ import Footer from "@/components/sections/Footer";
 import SocialSide from "@/components/SocialLinks";
 import EmailSide from "@/components/EmailSide";
 import Wrapper from "@/components/Wrapper";
+import { Analytics } from '@vercel/analytics/react';
 
 const roboto = Roboto_Condensed({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
           </div>
           <EmailSide />
         </Wrapper>
+        <Analytics />
       </body>
     </html>
   );
