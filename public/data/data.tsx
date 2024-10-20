@@ -4,16 +4,16 @@
 
 import {
   CodeIcon,
-  CodePen,
   DebugIcon,
   Facebook,
   GitHub,
   Instagram,
   Linkedin,
+  MediumIcon,
   PerformanceIcon,
   Responsive,
   UiIcon,
-  WebsiteIcon,
+  WebsiteIcon
 } from "@/utils/icons";
 import { ReactNode } from "react";
 
@@ -52,6 +52,10 @@ export const navlinks: navLinksType[] = [
     url: "#services",
   },
   {
+    title: "Blogs",
+    url: "https://mdkayeshblog.vercel.app/",
+  },
+  {
     title: "Projects",
     url: "#projects",
   },
@@ -75,7 +79,7 @@ export const socialIcons = [
   {
     title: "Instagram",
     icon: <Instagram />,
-    url: "https://instagram.com/mdkayesh777/",
+    url: "https://instagram.com/md.kayesh777/",
   },
   {
     title: "Facebook",
@@ -83,9 +87,9 @@ export const socialIcons = [
     url: "https://www.facebook.com/kayeskhanakash",
   },
   {
-    title: "CodePen",
-    icon: <CodePen />,
-    url: "https://codepen.io/mdkayesh",
+    title: "Medium",
+    icon: <MediumIcon />,
+    url: "https://medium.com/@mdkayesh777",
   },
 ];
 

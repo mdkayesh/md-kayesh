@@ -18,6 +18,9 @@ const technologies = [
     title: "TypeScript",
   },
   {
+    title: "React-native"
+  },
+  {
     title: "Next.js",
   },
   {
@@ -31,7 +34,9 @@ const technologies = [
   },
   {
     title: "Bootstrap",
-  },
+  }, {
+    title: "Figma",
+  }
 ];
 
 const About = () => {

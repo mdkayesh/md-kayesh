@@ -9,6 +9,7 @@ import { GrDocumentPerformance } from "react-icons/gr";
 import { VscDebugConsole } from "react-icons/vsc";
 import { BsCodeSlash } from "react-icons/bs";
 import { LuExternalLink } from "react-icons/lu";
+import { PiMediumLogo } from "react-icons/pi";
 
 export {
   TbBrandGithub as GitHub,
@@ -24,5 +25,6 @@ export {
   GrDocumentPerformance as PerformanceIcon,
   VscDebugConsole as DebugIcon,
   BsCodeSlash as CodeIcon,
-  LuExternalLink as ExternalIcon
+  LuExternalLink as ExternalIcon,
+  PiMediumLogo as MediumIcon
 };
