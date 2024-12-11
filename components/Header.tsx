@@ -85,6 +85,7 @@ const Header = () => {
                       link.title === active ? "text-primary" : ""
                     } block w-[70px] text-center text-heading_color transition-all duration-300 hover:text-primary`}
                     onClick={(e) => {
+                      if(link.title === "Blogs")return;
                       e.preventDefault();
                       ScrollTo(link.url);
                     }}

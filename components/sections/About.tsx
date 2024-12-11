@@ -34,7 +34,8 @@ const technologies = [
   },
   {
     title: "Bootstrap",
-  }, {
+  },
+  {
     title: "Figma",
   }
 ];
